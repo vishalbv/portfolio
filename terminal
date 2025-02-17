@@ -1,0 +1,10 @@
+npx create-next-app@latest portfolio-vishal --typescript --tailwind --eslint
+cd portfolio-vishal
+npx shadcn-ui@latest init
+mkdir -p src/app src/components src/lib
+npm install next-themes canvas
+npm install @types/node-canvas
+mkdir -p public/assets/pdf public/assets/images
+cp src/assets/pdf/Vishal_BV_React_6yrs.pdf public/assets/pdf/
+cp node_modules/pdfjs-dist/build/pdf.worker.min.js public/
+cp src/assets/me.png public/assets/images/ 
