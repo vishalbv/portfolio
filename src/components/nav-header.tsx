@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import Link from "next/link";
-import { ModeToggle } from "./mode-toggle";
+
 import { Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
@@ -84,24 +85,25 @@ export function NavHeader() {
 
   useEffect(() => {
     const handleIntersect = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
+      entries.forEach(() => {
         // Get the current scroll position
         const scrollPosition = window.scrollY + window.innerHeight / 2;
 
         // Get all sections
         const sections = document.querySelectorAll("section[id]");
-        let currentSection: Element | null = null;
+        let currentSection: any = null;
 
         // Find the section that is currently in view
         sections.forEach((section) => {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.clientHeight;
+          const sectionElement = section as HTMLElement;
+          const sectionTop = sectionElement.offsetTop;
+          const sectionHeight = sectionElement.clientHeight;
 
           if (
             scrollPosition >= sectionTop &&
             scrollPosition < sectionTop + sectionHeight
           ) {
-            currentSection = section;
+            currentSection = sectionElement;
           }
         });
 
@@ -136,17 +138,19 @@ export function NavHeader() {
       const scrollPosition = window.scrollY + window.innerHeight / 2;
       const sections = document.querySelectorAll("section[id]");
 
-      let currentSection: Element | null = null;
+      let currentSection: any = null;
 
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      sections.forEach((section: any) => {
+        const sectionElement = section as HTMLElement;
+        const sectionTop = sectionElement.offsetTop;
+        const sectionHeight = sectionElement.clientHeight;
 
         if (
           scrollPosition >= sectionTop &&
           scrollPosition < sectionTop + sectionHeight
         ) {
-          currentSection = section;
+          currentSection = sectionElement;
         }
       });
 
