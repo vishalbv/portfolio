@@ -14,7 +14,7 @@ import {
   TooltipTrigger,
 } from "./ui/tooltip";
 
-type Section = "home" | "skills" | "experience" | "contact";
+type Section = "home" | "skills" | "experience" | "projects" | "contact";
 
 const socialLinks = [
   {
@@ -191,6 +191,8 @@ export function NavHeader() {
           {[
             { id: "home", label: "Home" },
             { id: "skills", label: "Skills" },
+
+            { id: "projects", label: "Projects" },
             { id: "experience", label: "Experience" },
             { id: "contact", label: "Contact" },
           ].map((item) => (
