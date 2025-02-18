@@ -170,11 +170,11 @@ export const Projects = () => {
                           alt={`${project.company} project`}
                           width={750}
                           height={500}
-                          className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+                          className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-500"
                         />
 
                         {/* Overlay with Project Title */}
-                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        {/* <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                           <div className="text-center">
                             <h4 className=" font-medium text-xl">
                               Project Preview
@@ -183,7 +183,7 @@ export const Projects = () => {
                               {project.company} - {project.period}
                             </p>
                           </div>
-                        </div>
+                        </div> */}
                       </>
                     )}
                   </div>
