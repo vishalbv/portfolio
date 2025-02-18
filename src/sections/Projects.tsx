@@ -2,6 +2,8 @@ import { useState } from "react";
 import { projects } from "../lib/data";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import { ImageGallery } from "../components/ImageGallery";
+
 export const Projects = () => {
   const [currentImageIndexes, setCurrentImageIndexes] = useState<{
     [key: string]: number;
@@ -29,7 +31,7 @@ export const Projects = () => {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-16"
+                className="grid grid-cols-1 lg:grid-cols-[56%_40%] gap-[4%]"
               >
                 {/* Left side - Experience Details */}
                 <div className="relative pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-gradient-to-b before:from-yellow-500 before:to-[var(--primary)]">
@@ -157,97 +159,10 @@ export const Projects = () => {
 
                 {/* Right side - Image Gallery */}
                 <div className="space-y-6">
-                  {/* Image Container */}
-                  <div className="relative aspect-[16/9] rounded-lg overflow-hidden bg-[#1A1530] group">
-                    {project.images?.length > 0 && (
-                      <>
-                        <Image
-                          src={`/assets/images/${
-                            project.images[
-                              currentImageIndexes[project.company] || 0
-                            ]
-                          }`}
-                          alt={`${project.company} project`}
-                          width={750}
-                          height={500}
-                          className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-500"
-                        />
-
-                        {/* Overlay with Project Title */}
-                        {/* <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                          <div className="text-center">
-                            <h4 className=" font-medium text-xl">
-                              Project Preview
-                            </h4>
-                            <p className="text-zinc-300 text-base mt-2">
-                              {project.company} - {project.period}
-                            </p>
-                          </div>
-                        </div> */}
-                      </>
-                    )}
-                  </div>
-
-                  {/* Navigation - Arrows and Dots */}
-                  {project.images?.length > 1 && (
-                    <div className="flex items-center justify-center gap-4">
-                      {/* Left Arrow */}
-                      <button
-                        onClick={() => {
-                          setCurrentImageIndexes((prev) => ({
-                            ...prev,
-                            [project.company]:
-                              prev[project.company] === 0 ||
-                              prev[project.company] === undefined
-                                ? project.images.length - 1
-                                : prev[project.company] - 1,
-                          }));
-                        }}
-                        className="w-8 h-8 rounded-full bg-[#2A2440] flex items-center justify-center hover:bg-[var(--primary)]/20 transition-colors"
-                        aria-label="Previous image"
-                      >
-                        <ChevronLeft className="w-4 h-4 " />
-                      </button>
-
-                      {/* Dots */}
-                      <div className="flex items-center gap-4">
-                        {project.images.map((_, index) => (
-                          <button
-                            key={index}
-                            onClick={() => {
-                              setCurrentImageIndexes((prev) => ({
-                                ...prev,
-                                [project.company]: index,
-                              }));
-                            }}
-                            className={`h-2.5 transition-all duration-300 rounded-full hover:bg-white ${
-                              index ===
-                              (currentImageIndexes[project.company] || 0)
-                                ? "w-8 bg-white"
-                                : "w-2.5 bg-white/50"
-                            }`}
-                            aria-label={`View image ${index + 1}`}
-                          />
-                        ))}
-                      </div>
-
-                      {/* Right Arrow */}
-                      <button
-                        onClick={() => {
-                          setCurrentImageIndexes((prev) => ({
-                            ...prev,
-                            [project.company]:
-                              ((prev[project.company] || 0) + 1) %
-                              project.images.length,
-                          }));
-                        }}
-                        className="w-8 h-8 rounded-full bg-[#2A2440] flex items-center justify-center hover:bg-[var(--primary)]/20 transition-colors"
-                        aria-label="Next image"
-                      >
-                        <ChevronRight className="w-4 h-4 " />
-                      </button>
-                    </div>
-                  )}
+                  <ImageGallery
+                    images={project.images || []}
+                    company={project.company}
+                  />
                 </div>
 
                 {/* Add this inside the experience mapping, after the technologies section */}
