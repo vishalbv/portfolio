@@ -165,7 +165,7 @@ export const Experience = () => {
                 </div>
 
                 {/* Add this inside the experience mapping, after the technologies section */}
-                {experience.highlights && (
+                {/* {experience.highlights && (
                   <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:col-span-2">
                     {experience.highlights.map((highlight, idx) => (
                       <div
@@ -179,7 +179,7 @@ export const Experience = () => {
                       </div>
                     ))}
                   </div>
-                )}
+                )} */}
               </div>
             ))}
           </div>
