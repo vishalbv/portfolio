@@ -1,15 +1,8 @@
 import { experiences } from "../lib/data";
-import Image from "next/image";
-import { ChevronLeft, ChevronRight, Maximize2, Minimize2 } from "lucide-react";
-import { useState } from "react";
+
 import { ImageGallery } from "../components/ImageGallery";
 
 export const Experience = () => {
-  const [currentImageIndexes, setCurrentImageIndexes] = useState<{
-    [key: string]: number;
-  }>({});
-  const [maximizedCompany, setMaximizedCompany] = useState<string | null>(null);
-
   return (
     <section
       id="experience"

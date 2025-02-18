@@ -1,13 +1,8 @@
-import { useState } from "react";
 import { projects } from "../lib/data";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import Image from "next/image";
+
 import { ImageGallery } from "../components/ImageGallery";
 
 export const Projects = () => {
-  const [currentImageIndexes, setCurrentImageIndexes] = useState<{
-    [key: string]: number;
-  }>({});
   return (
     <section
       id="projects"
