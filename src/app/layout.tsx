@@ -29,6 +29,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className="dark">
+      <head>
+        <link rel="icon" type="image/png" href="nu.png" />
+      </head>
       <body
         className={`${poppins.variable} font-sans bg-[#1a1d23] ${dongle.variable}`}
       >

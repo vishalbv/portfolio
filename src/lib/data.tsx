@@ -402,75 +402,12 @@ export const projects = [
       },
     ],
   },
-  {
-    role: "Frontend Developer",
-    company: "OraCare Dentistry",
-    location: "Plano, TX",
-    period: "2023",
-    website: "https://www.oracaredentistry.com/",
-    displayUrl: "oracaredentistry.com",
-    images: [
-      "freelance/oracare/a.png",
-      "freelance/oracare/b.png",
-      "freelance/oracare/c.png",
-    ],
-    responsibilities: [
-      "Developed a modern dental clinic website using Next.js with SSR for enhanced SEO performance",
-      "Implemented comprehensive service sections including Cosmetic Dentistry, Preventive Care, Restorative, Endodontics, Oral Surgery, and Periodontics",
-      "Built an intuitive appointment booking system with integration to clinic's scheduling",
-      "Created responsive layouts ensuring perfect display across all devices (mobile, tablet, desktop)",
-      "Integrated interactive components like service carousels and contact forms",
-      "Configured domain and hosting through GoDaddy for the production environment",
-      "Maintained regular communication with US client to ensure all requirements were met within timeline",
-    ],
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "SCSS Modules",
-      "Responsive Design",
-      "Figma",
-      "Booking System",
-      "SSR",
-      "GoDaddy",
-    ],
-    highlights: [
-      {
-        title: "SEO Optimization",
-        description:
-          "Implemented SSR and semantic HTML structure to enhance search engine visibility for local dental services",
-      },
-      {
-        title: "Booking Integration",
-        description:
-          "Developed user-friendly appointment scheduling system with automated confirmation",
-      },
-      {
-        title: "Service Showcase",
-        description:
-          "Created detailed service sections with interactive elements to highlight dental procedures and specialties",
-      },
-      {
-        title: "Location Integration",
-        description:
-          "Integrated maps and contact information for the Plano, TX location (7000 Preston Rd, Suite 400)",
-      },
-      {
-        title: "Business Hours",
-        description:
-          "Implemented dynamic business hours display with special handling for weekend schedules",
-      },
-      {
-        title: "Contact System",
-        description:
-          "Built integrated contact system with click-to-call functionality for the clinic's phone number (469-293-4444)",
-      },
-    ],
-  },
+
   {
     role: "Frontend Developer",
     company: "Paymadi Technologies",
     location: "Bangalore",
-    period: "2023",
+    period: "2024 - 2025",
     website: "https://www.paymadi.com/",
     displayUrl: "paymadi.com",
     appLinks: {
@@ -547,6 +484,71 @@ export const projects = [
         title: "Performance",
         description:
           "Optimized application performance through efficient component rendering and state management",
+      },
+    ],
+  },
+
+  {
+    role: "Frontend Developer",
+    company: "OraCare Dentistry",
+    location: "Plano, TX",
+    period: "2024",
+    website: "https://www.oracaredentistry.com/",
+    displayUrl: "oracaredentistry.com",
+    images: [
+      "freelance/oracare/a.png",
+      "freelance/oracare/b.png",
+      "freelance/oracare/c.png",
+    ],
+    responsibilities: [
+      "Developed a modern dental clinic website using Next.js with SSR for enhanced SEO performance",
+      "Implemented comprehensive service sections including Cosmetic Dentistry, Preventive Care, Restorative, Endodontics, Oral Surgery, and Periodontics",
+      "Built an intuitive appointment booking system with integration to clinic's scheduling",
+      "Created responsive layouts ensuring perfect display across all devices (mobile, tablet, desktop)",
+      "Integrated interactive components like service carousels and contact forms",
+      "Configured domain and hosting through GoDaddy for the production environment",
+      "Maintained regular communication with US client to ensure all requirements were met within timeline",
+    ],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "SCSS Modules",
+      "Responsive Design",
+      "Figma",
+      "Booking System",
+      "SSR",
+      "GoDaddy",
+    ],
+    highlights: [
+      {
+        title: "SEO Optimization",
+        description:
+          "Implemented SSR and semantic HTML structure to enhance search engine visibility for local dental services",
+      },
+      {
+        title: "Booking Integration",
+        description:
+          "Developed user-friendly appointment scheduling system with automated confirmation",
+      },
+      {
+        title: "Service Showcase",
+        description:
+          "Created detailed service sections with interactive elements to highlight dental procedures and specialties",
+      },
+      {
+        title: "Location Integration",
+        description:
+          "Integrated maps and contact information for the Plano, TX location (7000 Preston Rd, Suite 400)",
+      },
+      {
+        title: "Business Hours",
+        description:
+          "Implemented dynamic business hours display with special handling for weekend schedules",
+      },
+      {
+        title: "Contact System",
+        description:
+          "Built integrated contact system with click-to-call functionality for the clinic's phone number (469-293-4444)",
       },
     ],
   },
