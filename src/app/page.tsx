@@ -48,7 +48,7 @@ export default function Home() {
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         className={cn(
-          "fixed bottom-8 right-8 p-1.5 rounded-full bg-[var(--primary)]/20 hover:bg-[var(--primary)]/30 transition-all duration-300 z-50 border border-2 border-[#00f2fe88] hover:bg-[#00f2fe22]",
+          "fixed bottom-8 right-8 p-1.5 rounded-full bg-[var(--primary)]/20 hover:bg-[var(--primary)]/30 transition-all duration-300 z-[1] border border-2 border-[#00f2fe88] hover:bg-[#00f2fe22]",
           showScrollButton
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-16"

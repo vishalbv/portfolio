@@ -314,7 +314,7 @@ export function NavHeader() {
       <div
         ref={menuRef}
         className={cn(
-          "fixed top-[72px] right-0 w-[75%] h-[calc(100vh-102px)] bg-[#2e203d] z-50 lg:hidden transition-all duration-300 overflow-y-auto transform",
+          "fixed top-[72px] right-0 w-[75%] h-[calc(100vh-72px)] bg-[#2e203d] z-500 lg:hidden transition-all duration-300 overflow-y-auto transform",
           isMenuOpen
             ? "translate-x-0 opacity-100 pointer-events-auto"
             : "translate-x-full opacity-0 pointer-events-none"
