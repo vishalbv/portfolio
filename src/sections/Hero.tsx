@@ -43,9 +43,9 @@ const Hero = () => {
       </div>
 
       <div className="container relative">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
           {/* Left Content */}
-          <div className="flex-1 space-y-8">
+          <div className="flex-1 space-y-6 lg:space-y-8 text-center lg:text-left">
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm">
                 <span className="w-2 h-2 rounded-full bg-[var(--primary)] animate-pulse" />
@@ -53,21 +53,21 @@ const Hero = () => {
                   Senior Frontend Developer
                 </span>
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
                 <span className="block">Building</span>
                 <span className="block mt-1 text-[var(--primary)]">
                   Digital Products
                 </span>
                 <span className="block mt-1">With Passion</span>
               </h1>
-              <p className="text-lg text-zinc-400 max-w-[600px]">
+              <p className="text-base lg:text-lg text-zinc-400 max-w-[600px] mx-auto lg:mx-0">
                 Over 6 years of experience in crafting responsive and scalable
                 web applications. Specialized in modern frontend technologies
                 and user-centric development.
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4">
               <Button
                 onClick={handleDownload}
                 className="bg-[var(--primary)] hover:bg-[var(--primary)]/90 text-lg px-8 py-4 h-auto hover:scale-105 transition-all duration-300"
@@ -92,9 +92,11 @@ const Hero = () => {
             </div>
 
             {/* Tech Stack */}
-            <div className="pt-8 border-t border-white/10">
-              <h3 className="text-sm text-zinc-400 mb-4">Tech Stack</h3>
-              <div className="flex flex-wrap gap-6">
+            <div className="pt-6 lg:pt-8 border-t border-white/10">
+              <h3 className="text-sm text-zinc-400 mb-4 text-center lg:text-left">
+                Tech Stack
+              </h3>
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4 lg:gap-6">
                 {techStack.map((tech, index) => (
                   <div key={index} className="group relative">
                     <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
@@ -110,8 +112,8 @@ const Hero = () => {
           </div>
 
           {/* Right Content - Profile Image */}
-          <div className="relative">
-            <div className="relative w-[480px] h-[560px] rounded-2xl overflow-hidden">
+          <div className="relative w-full max-w-[320px] lg:max-w-[480px]">
+            <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/90 z-10" />
               <Image
                 src="/assets/images/me.png"
@@ -123,14 +125,14 @@ const Hero = () => {
             </div>
 
             {/* Experience Card */}
-            <div className="absolute -right-10 top-10 p-4 backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl">
-              <div className="text-4xl font-bold ">6+</div>
+            <div className="absolute -right-4 lg:-right-10 top-10 p-4 backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl">
+              <div className="text-3xl lg:text-4xl font-bold">6+</div>
               <div className="text-sm text-zinc-400">Years of Experience</div>
             </div>
 
             {/* Projects Card */}
-            <div className="absolute -left-10 bottom-10 p-4 backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl">
-              <div className="text-4xl font-bold ">50+</div>
+            <div className="absolute -left-4 lg:-left-10 bottom-10 p-4 backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl">
+              <div className="text-3xl lg:text-4xl font-bold">50+</div>
               <div className="text-sm text-zinc-400">Projects Completed</div>
             </div>
           </div>

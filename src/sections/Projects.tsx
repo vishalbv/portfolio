@@ -22,11 +22,11 @@ export const Projects = () => {
               Showcase of my personal projects and technical innovations.
             </p>
           </div>
-          <div className="space-y-20">
+          <div className="space-y-16 md:space-y-28">
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="grid grid-cols-1 lg:grid-cols-[56%_40%] gap-[4%]"
+                className="grid grid-cols-1 lg:grid-cols-[56%_40%] gap-8 lg:gap-[4%]"
               >
                 {/* Left side - Experience Details */}
                 <div className="relative pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-gradient-to-b before:from-yellow-500 before:to-[var(--primary)]">
@@ -153,7 +153,7 @@ export const Projects = () => {
                 </div>
 
                 {/* Right side - Image Gallery */}
-                <div className="space-y-6">
+                <div className="space-y-6 mt-8 lg:mt-0">
                   <ImageGallery
                     images={project.images || []}
                     company={project.company}
@@ -162,13 +162,13 @@ export const Projects = () => {
 
                 {/* Add this inside the experience mapping, after the technologies section */}
                 {project.highlights && (
-                  <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:col-span-2">
+                  <div className="mt-8 lg:mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:col-span-2">
                     {project.highlights.map((highlight, idx) => (
                       <div
                         key={idx}
                         className="bg-[#2A2440] p-4 rounded-lg space-y-2 hover:bg-[#2A2440]/80 transition-colors"
                       >
-                        <h4 className=" font-medium">{highlight.title}</h4>
+                        <h4 className="font-medium">{highlight.title}</h4>
                         <p className="text-zinc-400 text-sm">
                           {highlight.description}
                         </p>

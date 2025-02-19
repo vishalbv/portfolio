@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import { Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "./ui/button";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { cn } from "@/lib/utils";
 import {
   Tooltip,
@@ -70,6 +70,9 @@ const socialLinks = [
 export function NavHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<Section>("home");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -167,6 +170,26 @@ export function NavHeader() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Add click outside handler
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isMenuOpen &&
+        menuRef.current &&
+        buttonRef.current &&
+        !menuRef.current.contains(event.target as Node) &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -184,14 +207,53 @@ export function NavHeader() {
       )}
     >
       <div className="container flex items-center justify-between text-white">
-        <Link href="/" className="text-2xl font-bold w-[180px]">
+        <Link href="/" className="text-2xl font-bold">
           Vishal<span className="text-[var(--primary)]">.</span>BV
         </Link>
-        <nav className="flex-1 flex items-center justify-center gap-2">
+
+        {/* Mobile Menu Button */}
+        <button
+          ref={buttonRef}
+          className={cn("lg:hidden p-2 relative z-[60]")}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {!isMenuOpen ? (
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          ) : (
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          )}
+        </button>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex flex-1 items-center justify-center gap-2">
           {[
             { id: "home", label: "Home" },
             { id: "skills", label: "Skills" },
-
             { id: "projects", label: "Projects" },
             { id: "experience", label: "Experience" },
             { id: "contact", label: "Contact" },
@@ -211,7 +273,9 @@ export function NavHeader() {
             </button>
           ))}
         </nav>
-        <div className="flex items-center gap-3 w-[260px] justify-end">
+
+        {/* Desktop Social Links */}
+        <div className="hidden lg:flex items-center gap-3 w-[260px] justify-end">
           <TooltipProvider delayDuration={100}>
             {socialLinks.map((link) => (
               <Tooltip key={link.name}>
@@ -243,6 +307,64 @@ export function NavHeader() {
               </Tooltip>
             ))}
           </TooltipProvider>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        ref={menuRef}
+        className={cn(
+          "fixed top-[72px] right-0 w-[75%] h-[calc(100vh-102px)] bg-[#2e203d] z-50 lg:hidden transition-all duration-300 overflow-y-auto transform",
+          isMenuOpen
+            ? "translate-x-0 opacity-100 pointer-events-auto"
+            : "translate-x-full opacity-0 pointer-events-none"
+        )}
+      >
+        <div className="flex flex-col min-h-full py-6 px-6">
+          <nav className="flex flex-col gap-4 mb-auto">
+            {[
+              { id: "home", label: "Home" },
+              { id: "skills", label: "Skills" },
+              { id: "projects", label: "Projects" },
+              { id: "experience", label: "Experience" },
+              { id: "contact", label: "Contact" },
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => {
+                  scrollToSection(item.id);
+                  setIsMenuOpen(false);
+                }}
+                className={cn(
+                  "text-lg font-medium py-2 text-right",
+                  activeSection === item.id
+                    ? "text-[var(--primary)]"
+                    : "text-zinc-400 hover:text-white"
+                )}
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+
+          {/* Mobile Social Links */}
+          <div className="flex flex-wrap justify-center gap-4 pt-6 mt-auto border-t border-white/10">
+            {socialLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={
+                  link.href.startsWith("http")
+                    ? "noopener noreferrer"
+                    : undefined
+                }
+                className="p-2 hover:text-[var(--primary)]"
+              >
+                {link.icon}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </header>

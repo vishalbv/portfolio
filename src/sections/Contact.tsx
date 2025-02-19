@@ -62,9 +62,9 @@ export const Contact = () => {
             <div className="text-yellow-500 text-sm tracking-wider">
               — Get in Touch
             </div>
-            <h2 className="text-4xl font-bold ">Let's Work Together</h2>
+            <h2 className="text-4xl font-bold ">Let&apos;s Work Together</h2>
             <p className="text-zinc-400 max-w-[600px]">
-              Have a project in mind? Let's discuss how we can help your
+              Have a project in mind? Let&apos;s discuss how we can help your
               business grow.
             </p>
           </div>
@@ -148,6 +148,42 @@ export const Contact = () => {
               )}
             </div>
           </form>
+
+          <div className="mt-16">
+            <div className="flex items-center gap-4 justify-center">
+              <div className="h-[1px] bg-white/10 flex-1" />
+              <span className="text-zinc-400">OR</span>
+              <div className="h-[1px] bg-white/10 flex-1" />
+            </div>
+
+            <div className="mt-8 text-center">
+              <h3 className="text-2xl font-bold mb-4">Contact Me Directly</h3>
+              <div className="space-y-2 text-zinc-400">
+                <p className="font-medium text-white">Vishal BV</p>
+                <p>
+                  <span className="font-medium">Phone:</span>{" "}
+                  <a
+                    href="tel:+917760873718"
+                    className="hover:text-[var(--primary)]"
+                  >
+                    +91 7760873718
+                  </a>
+                </p>
+                <p>
+                  <span className="font-medium">Email:</span>{" "}
+                  <a
+                    href="mailto:vishalbv23@gmail.com"
+                    className="hover:text-[var(--primary)]"
+                  >
+                    vishalbv23@gmail.com
+                  </a>
+                </p>
+                <p>
+                  <span className="font-medium">Location:</span> Bengaluru
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
