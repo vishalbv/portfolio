@@ -321,6 +321,24 @@ export function NavHeader() {
         )}
       >
         <div className="flex flex-col min-h-full py-6 px-6">
+          {/* Mobile Social Links */}
+          <div className="flex flex-wrap justify-center gap-4 pb-6 border-b border-white/10 mb-4">
+            {socialLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={
+                  link.href.startsWith("http")
+                    ? "noopener noreferrer"
+                    : undefined
+                }
+                className="p-2 hover:text-[var(--primary)]"
+              >
+                {link.icon}
+              </a>
+            ))}
+          </div>
           <nav className="flex flex-col gap-4 mb-auto">
             {[
               { id: "home", label: "Home" },
@@ -346,25 +364,6 @@ export function NavHeader() {
               </button>
             ))}
           </nav>
-
-          {/* Mobile Social Links */}
-          <div className="flex flex-wrap justify-center gap-4 pt-6 mt-auto border-t border-white/10">
-            {socialLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel={
-                  link.href.startsWith("http")
-                    ? "noopener noreferrer"
-                    : undefined
-                }
-                className="p-2 hover:text-[var(--primary)]"
-              >
-                {link.icon}
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </header>
