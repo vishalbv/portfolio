@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import emailjs from "@emailjs/browser";
+import Wave from "react-wavify";
 
 export const Contact = () => {
   // Add this type for form data
@@ -20,6 +21,30 @@ export const Contact = () => {
   const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(
     null
   );
+
+  // Add state for wave properties
+  const [waveAmplitude, setWaveAmplitude] = useState(70);
+  const [waveDirection, setWaveDirection] = useState(0);
+
+  // Handle mouse movement
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const { clientX, clientY } = e;
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+
+      // Calculate wave amplitude based on vertical mouse position
+      const newAmplitude = 20 + (clientY / windowHeight) * 30;
+      setWaveAmplitude(newAmplitude);
+
+      // Calculate wave direction based on horizontal mouse position
+      const newDirection = 180 + (clientX / windowWidth - 0.5) * 20;
+      // setWaveDirection(newDirection);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,7 +79,44 @@ export const Contact = () => {
       id="contact"
       className="min-h-screen py-20 relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-[var(--primary)]/10 via-transparent to-transparent" />
+      <div className="absolute inset-0">
+        <Wave
+          fill="var(--primary)"
+          paused={false}
+          opacity="0.05"
+          options={{
+            height: 40,
+            amplitude: waveAmplitude * 1.5,
+            speed: 0.12,
+            points: 8,
+          }}
+          style={{
+            position: "absolute",
+            bottom: 0,
+            transform: `rotate(${waveDirection}deg)`,
+            transition: "transform 0.3s ease-out",
+            height: 230,
+          }}
+        />
+        <Wave
+          fill="#8a2be2"
+          paused={false}
+          opacity="0.1"
+          options={{
+            height: 60,
+            amplitude: waveAmplitude * 2,
+            speed: 0.07,
+            points: 8,
+          }}
+          style={{
+            position: "absolute",
+            bottom: 0,
+            transform: `rotate(${waveDirection}deg)`,
+            transition: "transform 0.3s ease-out",
+            height: 230,
+          }}
+        />
+      </div>
 
       <div className="container relative">
         <div className="max-w-[980px] mx-auto">

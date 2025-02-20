@@ -79,7 +79,7 @@ const Hero = () => {
             <div className="flex flex-wrap justify-center lg:justify-start gap-4">
               <Button
                 onClick={handleDownload}
-                className="bg-[var(--primary)] hover:bg-[var(--primary)]/90 text-lg px-8 py-4 h-auto hover:scale-105 transition-all duration-300"
+                className="bg-[var(--primary)] hover:bg-[var(--primary)]/90 text-lg px-8 py-3 h-auto hover:scale-105 transition-all duration-300 rounded-full"
               >
                 Download CV
               </Button>
@@ -93,7 +93,7 @@ const Hero = () => {
                   }
                 }}
                 variant="outline"
-                className="text-lg px-8 py-4 h-auto border-white/10 hover:bg-white/5 hover:scale-105 transition-all duration-300 hover:text-white"
+                className="text-lg px-8 py-3 h-auto border-white/10 hover:bg-white/10 bg-white/5 hover:scale-105 transition-all duration-300 hover:text-white rounded-full"
               >
                 View Projects
               </Button>
