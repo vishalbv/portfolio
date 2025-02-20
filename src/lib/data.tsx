@@ -18,7 +18,7 @@ import {
 
 export const techStack = [
   {
-    name: "React",
+    name: "React.js",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -73,7 +73,14 @@ export const skills = [
     name: "Frontend Development",
     years: 6,
     rating: 9,
-    technologies: ["React", "Next.js", "TypeScript", "Redux", "TailwindCSS"],
+    technologies: [
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "Redux",
+      "TailwindCSS",
+      "NX Monorepo",
+    ],
   },
   {
     name: "UI/UX Development",
@@ -84,31 +91,39 @@ export const skills = [
       "Material-UI",
       "Styled Components",
       "Framer Motion",
+      "shadcn/ui",
     ],
   },
   {
     name: "Backend Development",
     years: 4,
     rating: 7,
-    technologies: ["Node.js", "Express", "MongoDB", "PostgreSQL"],
+    technologies: [
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "PostgreSQL",
+      "Java",
+      "Bun.js",
+    ],
   },
   {
     name: "DevOps & Tools",
     years: 3,
     rating: 7,
-    technologies: ["Git", "Docker", "AWS", "CI/CD", "Webpack"],
+    technologies: ["Git", "Docker", "CI/CD", "Webpack"],
   },
   {
     name: "Mobile Development",
     years: 2,
     rating: 6,
-    technologies: ["React Native", "Expo", "Android", "iOS"],
+    technologies: ["React Native", "Expo", "Android"],
   },
   {
     name: "Testing",
     years: 4,
     rating: 8,
-    technologies: ["Jest", "React Testing Library", "Cypress", "Playwright"],
+    technologies: ["Jest", "React Testing Library"],
   },
 ];
 
@@ -129,7 +144,7 @@ export const languageSkills = [
   },
   {
     name: "Next.js",
-    years: 4,
+    years: 3,
     rating: 9,
     icon: (
       <svg
@@ -143,7 +158,7 @@ export const languageSkills = [
   },
   {
     name: "Node.js",
-    years: 4,
+    years: 3,
     rating: 7,
     icon: (
       <svg
@@ -241,7 +256,7 @@ export const languageSkills = [
   },
   {
     name: "Jest",
-    years: 3,
+    years: 2,
     rating: 7,
     icon: (
       <svg
@@ -283,7 +298,7 @@ export const languageSkills = [
   },
   {
     name: "GraphQL",
-    years: 2,
+    years: 1,
     rating: 7,
     icon: (
       <svg
@@ -297,7 +312,7 @@ export const languageSkills = [
   },
   {
     name: "Material UI",
-    years: 3,
+    years: 4,
     rating: 8,
     icon: (
       <svg
@@ -346,6 +361,7 @@ export const projects = [
       "Implemented real-time P&L tracking with voice notifications for target hits and stop losses using WebSocket connections.",
       "Utilized AI tools (Claude AI, ChatGPT) to optimize code quality and implement advanced trading algorithms.",
       "Built a responsive, modern UI using Next.js 14, Shadcn, and Tailwind CSS with TypeScript for type safety.",
+      "Leveraged Turborepo for efficient code sharing between frontend and backend applications, improving development workflow and maintainability.",
     ],
     technologies: [
       "Bun.js",
@@ -358,6 +374,7 @@ export const projects = [
       "Trading APIs",
       "Custom Charts",
       "AI Integration",
+      "Turborepo",
     ],
     highlights: [
       {
@@ -396,9 +413,9 @@ export const projects = [
           "Developed an enhanced buy/sell window with hotkeys and single-click trading capabilities for rapid scalping operations.",
       },
       {
-        title: "Theme Customization",
+        title: "Monorepo Architecture",
         description:
-          "Implemented comprehensive dark and light theme support with customizable color schemes for optimal trading experience in any lighting condition.",
+          "Implemented Turborepo for efficient code sharing between frontend and backend, enabling seamless type sharing, utility functions, and improved development workflow.",
       },
     ],
   },
@@ -546,9 +563,9 @@ export const projects = [
           "Implemented dynamic business hours display with special handling for weekend schedules",
       },
       {
-        title: "Contact System",
+        title: "Blog Integration",
         description:
-          "Built integrated contact system with click-to-call functionality for the clinic's phone number (469-293-4444)",
+          "Implemented a dynamic blog section showcasing dental health tips, procedures, and educational content to enhance patient engagement and SEO performance.",
       },
     ],
   },
@@ -645,12 +662,14 @@ export const experiences = [
       "Developed applications using Next.js and React, demonstrating a solid understanding of their features and best practices.",
     ],
     technologies: [
-      "React",
+      "React.js",
       "Next.js",
       "Redux Toolkit",
       "Material UI",
       "Ant Design",
       "Micro-frontend",
+      "Mixpanel",
+      "Prompt-screen",
     ],
   },
   {
@@ -670,14 +689,17 @@ export const experiences = [
       "Built the application from the ground up while adhering to best coding practices.",
       "Collaborated with other teams, UX designers, and senior management.",
       "Led a team of four, engaging members by breaking tasks down and conducting pair programming sessions.",
+      "Continuously enhanced React.js expertise through training, workshops, and implementing best practices in production applications.",
     ],
     technologies: [
-      "React",
+      "React.js",
+      "Next.js",
       "NX Monorepo",
       "TypeScript",
       "Node.js",
       "GraphQL",
-      "AWS",
+      "Redux Toolkit",
+      "Material UI",
     ],
   },
   {
@@ -691,15 +713,19 @@ export const experiences = [
       "Employed an object-oriented approach in development.",
       "Developed flowcharts and solution documents to enhance user clarity.",
       "Implemented responsive designs using SASS, mixins, and modern CSS features.",
+      "Self-learned and mastered React.js through hands-on project implementation and continuous practice in production environments.",
+      "Implemented complex data visualizations using D3.js and Chart.js libraries for analytical dashboards and reporting interfaces.",
       "Transitioned AngularJS projects to React while maintaining functionality.",
     ],
     technologies: [
       "AngularJS",
-      "React",
+      "React.js",
       "D3.js",
       "Spring Boot",
+      "Java",
       "SASS",
       "Hadoop",
+      "PostgreSQL",
     ],
   },
 ];

@@ -76,8 +76,7 @@ const Hero = () => {
               </Button>
               <Button
                 onClick={() => {
-                  const experienceSection =
-                    document.getElementById("experience");
+                  const experienceSection = document.getElementById("projects");
                   if (experienceSection) {
                     experienceSection.scrollIntoView({
                       behavior: "smooth",
@@ -99,7 +98,7 @@ const Hero = () => {
               <div className="flex flex-wrap justify-center lg:justify-start gap-4 lg:gap-6">
                 {techStack.map((tech, index) => (
                   <div key={index} className="group relative">
-                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-all duration-300 group-hover:shadow-[0_0_15px_var(--primary)] group-hover:border group-hover:border-[var(--primary)]/50">
                       {tech.icon}
                     </div>
                     <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1 rounded-lg bg-[#1A1530] text-sm opacity-0 group-hover:opacity-100 transition-opacity">
@@ -132,7 +131,7 @@ const Hero = () => {
 
             {/* Projects Card */}
             <div className="absolute -left-4 lg:-left-10 bottom-10 p-4 backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl">
-              <div className="text-3xl lg:text-4xl font-bold">50+</div>
+              <div className="text-3xl lg:text-4xl font-bold">30+</div>
               <div className="text-sm text-zinc-400">Projects Completed</div>
             </div>
           </div>
