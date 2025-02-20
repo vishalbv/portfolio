@@ -20,8 +20,13 @@ const Hero = () => {
       id="home"
       className="min-h-screen flex items-center relative overflow-hidden pt-20"
     >
-      {/* Animated Background */}
+      {/* Original Animated Background */}
       <div className="animated-gradient" />
+
+      {/* Morphing Blob Background - Repositioned */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="morphing-blob left-[20%] lg:left-[25%]" />
+      </div>
 
       {/* Floating Elements - Keep these for additional depth */}
       <div className="absolute inset-0 overflow-hidden">
@@ -47,9 +52,13 @@ const Hero = () => {
           {/* Left Content */}
           <div className="flex-1 space-y-6 lg:space-y-8 text-center lg:text-left">
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm">
-                <span className="w-2 h-2 rounded-full bg-[var(--primary)] animate-pulse" />
-                <span className="text-zinc-400 font-medium">
+              <div className="relative inline-flex items-center gap-3 px-4 py-2">
+                {/* Border animation container */}
+                <div className="absolute inset-0 rounded-full before:absolute before:inset-0 before:rounded-full before:p-[1px] before:bg-[conic-gradient(from_var(--border-angle),var(--primary),#8a2be2_50%,var(--primary))] before:animate-border-rotate after:absolute after:inset-[1px] after:rounded-full after:bg-[#1a1530] after:backdrop-blur-sm" />
+
+                {/* Content */}
+                <span className="relative w-3 h-3 rounded-full bg-[var(--primary)] animate-pulse shadow-[0_0_10px_var(--primary)]" />
+                <span className="relative text-zinc-200 font-semibold">
                   Senior Frontend Developer
                 </span>
               </div>
@@ -98,7 +107,7 @@ const Hero = () => {
               <div className="flex flex-wrap justify-center lg:justify-start gap-4 lg:gap-6">
                 {techStack.map((tech, index) => (
                   <div key={index} className="group relative">
-                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-all duration-300 group-hover:shadow-[0_0_15px_var(--primary)] group-hover:border group-hover:border-[var(--primary)]/50">
+                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-shadow duration-300 group-hover:shadow-[0_0_15px_var(--primary)] group-hover:border group-hover:border-[#00f2fe77]">
                       {tech.icon}
                     </div>
                     <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1 rounded-lg bg-[#1A1530] text-sm opacity-0 group-hover:opacity-100 transition-opacity">

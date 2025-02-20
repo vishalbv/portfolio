@@ -33,7 +33,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: -1;
+  z-index: -2;
 }
 
 @keyframes gradient {
@@ -255,4 +255,110 @@ html {
 .form-input-focus:focus {
   transform: translateY(-2px);
   border-color: var(--primary);
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
+
+@property --border-width {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 2px;
+}
+
+@keyframes border-rotate {
+  0% {
+    --border-angle: 0turn;
+  }
+  100% {
+    --border-angle: 1turn;
+  }
+}
+
+.conic-border {
+  position: relative;
+  background: conic-gradient(
+    from var(--border-angle),
+    var(--primary),
+    #8a2be2 50%,
+    var(--primary)
+  );
+  animation: rotation 4s linear infinite;
+}
+
+.morphing-blob {
+  animation: morphing 30s infinite;
+  background: radial-gradient(circle at 0% 0%, #892be227, #892be227);
+  border-radius: 30% 70% 53% 47% / 26% 46% 54% 74%;
+  box-shadow: 0 -2vmin 4vmin var(--primary) inset, 0 1vmin 4vmin #8a2be2 inset,
+    0 -2vmin 7vmin var(--primary) inset;
+  content: "";
+  filter: drop-shadow(0 0 3vmin rgba(255, 255, 255, 0.1))
+    drop-shadow(0 5vmin 4vmin rgba(137, 43, 226, 0.192))
+    drop-shadow(2vmin -2vmin 15vmin rgba(138, 43, 226, 0.3))
+    drop-shadow(0 0 7vmin rgba(var(--primary), 0.3));
+  height: 75vmin;
+  position: absolute;
+  width: 65vmin;
+  top: 50%;
+  transform: translateY(-50%) translateX(-20%);
+  z-index: -1;
+  opacity: 0.2;
+}
+
+@keyframes morphing {
+  0%,
+  100% {
+    border-radius: 30% 70% 70% 30% / 30% 52% 48% 70%;
+    box-shadow: 0 -2vmin 4vmin var(--primary) inset,
+      0 -4vmin 4vmin #8a2be2 inset, 0 -2vmin 7vmin var(--primary) inset;
+  }
+
+  10% {
+    border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
+  }
+
+  20% {
+    border-radius: 67% 33% 47% 53% / 37% 20% 80% 63%;
+  }
+
+  30% {
+    border-radius: 39% 61% 47% 53% / 37% 40% 60% 63%;
+    box-shadow: 0 -4vmin 8vmin var(--primary) inset,
+      -1vmin -2vmin 6vmin var(--primary) inset,
+      -1vmin -2vmin 4vmin #8a2be2 inset, 1vmin 4vmin 8vmin var(--primary) inset;
+  }
+
+  40% {
+    border-radius: 39% 61% 82% 18% / 74% 40% 60% 26%;
+  }
+
+  50% {
+    border-radius: 100%;
+    box-shadow: 0 4vmin 16vmin var(--primary) inset,
+      0 2vmin 5vmin var(--primary) inset, 0 4vmin 4vmin #8a2be2 inset,
+      0 6vmin 8vmin var(--primary) inset;
+  }
+
+  60% {
+    border-radius: 50% 50% 53% 47% / 72% 69% 31% 28%;
+  }
+
+  70% {
+    border-radius: 50% 50% 53% 47% / 26% 22% 78% 74%;
+    box-shadow: 1vmin 1vmin 8vmin var(--primary) inset,
+      2vmin -1vmin 4vmin #8a2be2 inset,
+      -1vmin -1vmin 16vmin var(--primary) inset;
+  }
+
+  80% {
+    border-radius: 50% 50% 53% 47% / 26% 69% 31% 74%;
+  }
+
+  90% {
+    border-radius: 20% 80% 20% 80% / 20% 80% 20% 80%;
+  }
 }

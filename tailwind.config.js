@@ -61,6 +61,7 @@ module.exports = {
       },
       animation: {
         blob: "blob 10s infinite",
+        "border-rotate": "border-rotate 4s linear infinite",
       },
       keyframes: {
         blob: {
