@@ -2,12 +2,9 @@ import { skills } from "../lib/data";
 
 const Skills = () => {
   return (
-    <section
-      id="skills"
-      className="min-h-screen py-20 relative overflow-hidden"
-    >
+    <section id="skills" className="py-20 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[var(--primary)]/10 via-transparent to-transparent" />
+      {/* <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[var(--primary)]/10 via-transparent to-transparent" /> */}
 
       <div className="container relative">
         <div>

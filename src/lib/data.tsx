@@ -359,6 +359,7 @@ export const projects = [
       "Integrated multiple broker APIs (Fyers, Shoonya, FlatTrade) with a unified authentication system, simplifying the trading workflow.",
       "Developed a custom charting library with advanced technical analysis tools including Fibonacci retracements, trend lines, and RSI indicators.",
       "Implemented real-time P&L tracking with voice notifications for target hits and stop losses using WebSocket connections.",
+      "Integrated Telegram bot functionality enabling mobile notifications, remote position management, and app control through chat commands.",
       "Utilized AI tools (Claude AI, ChatGPT) to optimize code quality and implement advanced trading algorithms.",
       "Built a responsive, modern UI using Next.js 14, Shadcn, and Tailwind CSS with TypeScript for type safety.",
       "Leveraged Turborepo for efficient code sharing between frontend and backend applications, improving development workflow and maintainability.",
@@ -727,5 +728,26 @@ export const experiences = [
       "Hadoop",
       "PostgreSQL",
     ],
+  },
+];
+
+export const education = [
+  {
+    degree: "Bachelors of Engineering",
+    institution: "Malnad College Of Engineering, Hassan",
+    year: "2018",
+    score: "8.73 CGPA",
+  },
+  {
+    degree: "Pre-university",
+    institution: "Poorna Prajna College, Udupi",
+    year: "2014",
+    score: "86%",
+  },
+  {
+    degree: "SSLC",
+    institution: "Government High School, Sonale",
+    year: "2012",
+    score: "90%",
   },
 ];

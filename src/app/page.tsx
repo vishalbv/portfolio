@@ -8,6 +8,7 @@ import { TechSkills } from "../sections/TechSkills";
 import { Projects } from "../sections/Projects";
 import { Contact } from "../sections/Contact";
 import { Experience } from "../sections/Experience";
+import Education from "../sections/Education";
 
 // type Section = "home" | "skills" | "experience" | "contact";
 
@@ -39,6 +40,9 @@ export default function Home() {
 
         {/* Experience Section */}
         <Experience />
+
+        {/* Education Section */}
+        <Education />
 
         {/* New Contact Section */}
         <Contact />

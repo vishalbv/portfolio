@@ -250,12 +250,13 @@ export function NavHeader() {
         </button>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex flex-1 items-center justify-center gap-2">
+        <nav className="hidden lg:flex flex-1 items-center justify-center gap-2 [@media(max-width:1150px)_and_(min-width:1000px)]:scale-[0.88] transition-[transform] duration-300">
           {[
             { id: "home", label: "Home" },
             { id: "skills", label: "Skills" },
             { id: "projects", label: "Projects" },
             { id: "experience", label: "Experience" },
+            { id: "education", label: "Education" },
             { id: "contact", label: "Contact" },
           ].map((item) => (
             <button
@@ -275,7 +276,7 @@ export function NavHeader() {
         </nav>
 
         {/* Desktop Social Links */}
-        <div className="hidden lg:flex items-center gap-3 w-[260px] justify-end">
+        <div className="hidden lg:flex items-center gap-1.5 w-[220px] justify-end">
           <TooltipProvider delayDuration={100}>
             {socialLinks.map((link) => (
               <Tooltip key={link.name}>
@@ -345,6 +346,7 @@ export function NavHeader() {
               { id: "skills", label: "Skills" },
               { id: "projects", label: "Projects" },
               { id: "experience", label: "Experience" },
+              { id: "education", label: "Education" },
               { id: "contact", label: "Contact" },
             ].map((item) => (
               <button
