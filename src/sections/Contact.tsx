@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import emailjs from "@emailjs/browser";
 import Wave from "react-wavify";
+import { SocialLinks } from "../components/nav-header";
 
 export const Contact = () => {
   // Add this type for form data
@@ -220,7 +221,7 @@ export const Contact = () => {
 
             <div className="mt-8 text-center">
               <h3 className="text-2xl font-bold mb-4">Contact Me Directly</h3>
-              <div className="space-y-2 text-zinc-400">
+              <div className="space-y-2 text-zinc-400 flex flex-col gap-1 items-center">
                 <p className="font-medium text-white">Vishal BV</p>
                 <p>
                   <span className="font-medium">Phone:</span>{" "}
@@ -243,6 +244,7 @@ export const Contact = () => {
                 <p>
                   <span className="font-medium">Location:</span> Bengaluru
                 </p>
+                <SocialLinks />
               </div>
             </div>
           </div>
