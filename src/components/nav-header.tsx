@@ -240,7 +240,7 @@ export function NavHeader() {
       >
         <div className="flex flex-col min-h-full py-6 px-6">
           {/* Mobile Social Links */}
-          <div className="flex flex-wrap justify-center gap-4 pb-6 border-b border-white/10 mb-4">
+          <div className="flex flex-wrap justify-end gap-4 pb-6 border-b border-white/10 mb-4">
             {socialLinks.map((link) => (
               <a
                 key={link.name}
@@ -291,7 +291,7 @@ export function NavHeader() {
 
 export const SocialLinks = () => {
   return (
-    <div className="flex items-center gap-1.5 w-[220px] justify-end">
+    <div className="flex items-center gap-1.5 w-[220px] justify-end hidden lg:flex">
       <TooltipProvider delayDuration={100}>
         {socialLinks.map((link) => (
           <Tooltip key={link.name}>
