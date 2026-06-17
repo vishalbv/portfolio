@@ -212,6 +212,43 @@ body {
   opacity: 0.7;
 }
 
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: #ffffff18;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Text selection */
+::selection {
+  background: rgba(0, 242, 254, 0.25);
+  color: #fff;
+}
+
+/* Card glow on hover utility */
+.card-hover {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.card-hover:hover {
+  border-color: rgba(0, 242, 254, 0.2) !important;
+  box-shadow: 0 0 0 1px rgba(0, 242, 254, 0.08), 0 8px 32px rgba(0, 242, 254, 0.06);
+}
+
+/* Input focus glow */
+input:focus, textarea:focus {
+  outline: none;
+  border-color: rgba(0, 242, 254, 0.5) !important;
+  box-shadow: 0 0 0 3px rgba(0, 242, 254, 0.08);
+}
+
 @keyframes scroll-down {
   0% {
     transform: translateY(0);

@@ -129,10 +129,10 @@ export const Contact = () => {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div className="space-y-2">
-                <label htmlFor="name" className="text-sm text-zinc-400">
+                <label htmlFor="name" className="text-xs font-medium text-zinc-400 uppercase tracking-wider">
                   Your Name
                 </label>
                 <input
@@ -141,17 +141,14 @@ export const Contact = () => {
                   required
                   value={formData.name}
                   onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      name: e.target.value,
-                    }))
+                    setFormData((prev) => ({ ...prev, name: e.target.value }))
                   }
-                  className="w-full px-4 py-3 rounded-lg bg-[#1A1530]/60 border border-white/5 focus:border-[var(--primary)] transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-[#1A1530]/80 border border-white/8 transition-all placeholder:text-zinc-600 text-white"
                   placeholder="John Doe"
                 />
               </div>
               <div className="space-y-2">
-                <label htmlFor="email" className="text-sm text-zinc-400">
+                <label htmlFor="email" className="text-xs font-medium text-zinc-400 uppercase tracking-wider">
                   Your Email
                 </label>
                 <input
@@ -160,18 +157,15 @@ export const Contact = () => {
                   required
                   value={formData.email}
                   onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      email: e.target.value,
-                    }))
+                    setFormData((prev) => ({ ...prev, email: e.target.value }))
                   }
-                  className="w-full px-4 py-3 rounded-lg bg-[#1A1530]/60 border border-white/5 focus:border-[var(--primary)] transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-[#1A1530]/80 border border-white/8 transition-all placeholder:text-zinc-600 text-white"
                   placeholder="john@example.com"
                 />
               </div>
             </div>
             <div className="space-y-2">
-              <label htmlFor="message" className="text-sm text-zinc-400">
+              <label htmlFor="message" className="text-xs font-medium text-zinc-400 uppercase tracking-wider">
                 Your Message
               </label>
               <textarea
@@ -179,32 +173,25 @@ export const Contact = () => {
                 required
                 value={formData.message}
                 onChange={(e) =>
-                  setFormData((prev) => ({
-                    ...prev,
-                    message: e.target.value,
-                  }))
+                  setFormData((prev) => ({ ...prev, message: e.target.value }))
                 }
-                className="w-full px-4 py-3 rounded-lg bg-[#1A1530]/60 border border-white/5 focus:border-[var(--primary)] transition-colors min-h-[150px]"
+                className="w-full px-4 py-3 rounded-xl bg-[#1A1530]/80 border border-white/8 transition-all min-h-[140px] resize-none placeholder:text-zinc-600 text-white"
                 placeholder="Hello, I'd like to discuss..."
               />
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 pt-1">
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-[var(--primary)] hover:bg-[var(--primary)]/90 text-black font-medium px-8"
+                className="bg-[var(--primary)] hover:bg-[var(--primary)]/85 text-black font-semibold px-8 rounded-full shadow-[0_0_20px_rgba(0,242,254,0.25)] hover:shadow-[0_0_28px_rgba(0,242,254,0.4)] transition-all"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
               {submitStatus === "success" && (
-                <span className="text-green-500">
-                  Message sent successfully!
-                </span>
+                <span className="text-green-400 text-sm">Message sent successfully!</span>
               )}
               {submitStatus === "error" && (
-                <span className="text-red-500">
-                  Failed to send message. Please try again.
-                </span>
+                <span className="text-red-400 text-sm">Failed to send. Please try again.</span>
               )}
             </div>
           </form>
@@ -212,36 +199,28 @@ export const Contact = () => {
           <div className="mt-16">
             <div className="flex items-center gap-4 justify-center">
               <div className="h-[1px] bg-white/10 flex-1" />
-              <span className="text-zinc-400">OR</span>
+              <span className="text-zinc-500 text-sm">OR</span>
               <div className="h-[1px] bg-white/10 flex-1" />
             </div>
 
-            <div className="mt-8 text-center">
-              <h3 className="text-2xl font-bold mb-4">Contact Me Directly</h3>
-              <div className="space-y-2 text-zinc-400 flex flex-col gap-1 items-center">
-                <p className="font-medium text-white">Vishal BV</p>
-                <p>
-                  <span className="font-medium">Phone:</span>{" "}
-                  <a
-                    href="tel:+917760873718"
-                    className="hover:text-[var(--primary)]"
-                  >
-                    +91 7760873718
+            <div className="mt-8">
+              <div className="bg-[#1A1530]/60 border border-white/8 rounded-2xl p-8 backdrop-blur-sm text-center max-w-md mx-auto">
+                <h3 className="text-xl font-bold mb-1">Contact Me Directly</h3>
+                <p className="text-zinc-500 text-sm mb-6">Available for freelance & full-time roles</p>
+                <div className="space-y-3 text-sm">
+                  <a href="tel:+917760873718" className="flex items-center justify-center gap-2 text-zinc-300 hover:text-[var(--primary)] transition-colors">
+                    <span className="text-[var(--primary)]">📞</span> +91 7760873718
                   </a>
-                </p>
-                <p>
-                  <span className="font-medium">Email:</span>{" "}
-                  <a
-                    href="mailto:vishalbv23@gmail.com"
-                    className="hover:text-[var(--primary)]"
-                  >
-                    vishalbv23@gmail.com
+                  <a href="mailto:vishalbv23@gmail.com" className="flex items-center justify-center gap-2 text-zinc-300 hover:text-[var(--primary)] transition-colors">
+                    <span className="text-[var(--primary)]">✉️</span> vishalbv23@gmail.com
                   </a>
-                </p>
-                <p>
-                  <span className="font-medium">Location:</span> Bengaluru
-                </p>
-                <SocialLinks />
+                  <p className="flex items-center justify-center gap-2 text-zinc-400">
+                    <span className="text-[var(--primary)]">📍</span> Bengaluru, India
+                  </p>
+                </div>
+                <div className="mt-6 pt-5 border-t border-white/8">
+                  <SocialLinks />
+                </div>
               </div>
             </div>
           </div>

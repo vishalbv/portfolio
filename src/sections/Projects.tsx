@@ -166,10 +166,11 @@ export const Projects = () => {
                     {project.highlights.map((highlight, idx) => (
                       <div
                         key={idx}
-                        className="bg-[#2A2440] p-4 rounded-lg space-y-2 hover:bg-[#2A2440]/80 transition-colors"
+                        className="card-hover bg-[#1e1a35] p-4 rounded-xl space-y-2 border border-white/8"
                       >
-                        <h4 className="font-medium">{highlight.title}</h4>
-                        <p className="text-zinc-400 text-sm">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] mb-2" />
+                        <h4 className="font-semibold text-sm">{highlight.title}</h4>
+                        <p className="text-zinc-400 text-xs leading-relaxed">
                           {highlight.description}
                         </p>
                       </div>
