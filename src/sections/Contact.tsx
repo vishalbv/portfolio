@@ -25,7 +25,6 @@ export const Contact = () => {
 
   // Add state for wave properties
   const [waveAmplitude, setWaveAmplitude] = useState(70);
-  const [waveDirection, setWaveDirection] = useState(0);
 
   // Handle mouse movement
   useEffect(() => {
@@ -37,10 +36,6 @@ export const Contact = () => {
       // Calculate wave amplitude based on vertical mouse position
       const newAmplitude = 20 + (clientY / windowHeight) * 30;
       setWaveAmplitude(newAmplitude);
-
-      // Calculate wave direction based on horizontal mouse position
-      const newDirection = 180 + (clientX / windowWidth - 0.5) * 20;
-      // setWaveDirection(newDirection);
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -94,10 +89,11 @@ export const Contact = () => {
           style={{
             position: "absolute",
             bottom: 0,
-            transform: `rotate(${waveDirection}deg)`,
+
             transition: "transform 0.3s ease-out",
             height: 230,
           }}
+          data-testid="wave"
         />
         <Wave
           fill="#8a2be2"
@@ -112,10 +108,11 @@ export const Contact = () => {
           style={{
             position: "absolute",
             bottom: 0,
-            transform: `rotate(${waveDirection}deg)`,
+
             transition: "transform 0.3s ease-out",
             height: 230,
           }}
+          data-testid="wave"
         />
       </div>
 

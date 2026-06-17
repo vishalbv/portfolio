@@ -33,36 +33,73 @@ export const Experience = () => {
                 <div className="relative pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-gradient-to-b before:from-yellow-500 before:to-[var(--primary)]">
                   <div className="absolute left-0 top-0 w-4 h-4 -translate-x-[7px] rounded-full bg-yellow-500" />
 
-                  <div className="space-y-4">
-                    <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
-                      <h3 className="text-xl font-bold ">{experience.role}</h3>
-                      <div className="flex items-center gap-2 text-yellow-500 whitespace-nowrap">
-                        <span className="text-sm">{experience.company}</span>
-                        <span className="text-zinc-600">•</span>
-                        <span className="text-sm">{experience.period}</span>
-                      </div>
-                    </div>
+                  {"roles" in experience && experience.roles ? (
+                    <div className="space-y-8">
+                      {experience.roles.map((roleItem, roleIdx) => (
+                        <div key={roleIdx} className="space-y-3">
+                          <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
+                            <h3 className="text-xl font-bold">{roleItem.role}</h3>
+                            <div className="flex items-center gap-2 text-yellow-500 whitespace-nowrap">
+                              <span className="text-sm">{experience.company}</span>
+                              <span className="text-zinc-600">•</span>
+                              <span className="text-sm">{roleItem.period}</span>
+                            </div>
+                          </div>
 
-                    <div className="space-y-3">
-                      {experience.responsibilities.map((item, idx) => (
-                        <div key={idx} className="flex gap-2 text-zinc-400">
-                          <span className="text-yellow-500 mt-1.5">•</span>
-                          <p>{item}</p>
+                          <div className="space-y-3">
+                            {roleItem.responsibilities.map((item, idx) => (
+                              <div key={idx} className="flex gap-2 text-zinc-400">
+                                <span className="text-yellow-500 mt-1.5">•</span>
+                                <p>{item}</p>
+                              </div>
+                            ))}
+                          </div>
+
+                          <div className="flex flex-wrap gap-2 mt-2">
+                            {roleItem.technologies.map((tech, techIndex) => (
+                              <span
+                                key={techIndex}
+                                className="px-3 py-1 bg-white/5 rounded-full text-xs text-zinc-300 border border-white/5"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
                         </div>
                       ))}
                     </div>
+                  ) : (
+                    <div className="space-y-4">
+                      <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
+                        <h3 className="text-xl font-bold ">{experience.role}</h3>
+                        <div className="flex items-center gap-2 text-yellow-500 whitespace-nowrap">
+                          <span className="text-sm">{experience.company}</span>
+                          <span className="text-zinc-600">•</span>
+                          <span className="text-sm">{experience.period}</span>
+                        </div>
+                      </div>
 
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      {experience.technologies.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="px-3 py-1 bg-white/5 rounded-full text-xs text-zinc-300 border border-white/5"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                      <div className="space-y-3">
+                        {experience.responsibilities?.map((item, idx) => (
+                          <div key={idx} className="flex gap-2 text-zinc-400">
+                            <span className="text-yellow-500 mt-1.5">•</span>
+                            <p>{item}</p>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="flex flex-wrap gap-2 mt-4">
+                        {experience.technologies?.map((tech, techIndex) => (
+                          <span
+                            key={techIndex}
+                            className="px-3 py-1 bg-white/5 rounded-full text-xs text-zinc-300 border border-white/5"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
 
                 {/* Right side - Image Gallery */}

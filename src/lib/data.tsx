@@ -646,32 +646,59 @@ export const projects = [
 
 export const experiences = [
   {
-    role: "Senior Software Developer",
     company: "ConcertAI",
     location: "Bangalore",
-    period: "2023 - Present",
     images: [
+      "concertai/e.png",
+      "concertai/j.png",
+      "concertai/f.png",
+      "concertai/g.png",
+      "concertai/h.png",
+      "concertai/i.png",
       "concertai/a.png",
-      "concertai/b.png",
+
       "concertai/c.png",
-      "concertai/d.png",
     ],
-    responsibilities: [
-      "Introduced an AI Prompt screen with API integration, featuring additional functionalities such as note-taking and prompt saving.",
-      "Leveraged Material UI and Ant Design for controls related to Drag-and-Drop, Widgets, Menus, User Interface, and Forms.",
-      "Formulated and executed front-end development strategies, achieving a 15% boost in website performance by utilizing optimization techniques.",
-      "Refactored the existing application, integrated the Redux toolkit, adopted a micro-frontend architecture, Mixpanel tracking and updated NPM libraries.",
-      "Developed applications using Next.js and React, demonstrating a solid understanding of their features and best practices.",
-    ],
-    technologies: [
-      "React.js",
-      "Next.js",
-      "Redux Toolkit",
-      "Material UI",
-      "Ant Design",
-      "Micro-frontend",
-      "Mixpanel",
-      "Prompt-screen",
+    roles: [
+      {
+        role: "Lead Software Engineer",
+        period: "2024 - Present",
+        responsibilities: [
+          "Architected and led the frontend modernization initiative, transitioning the legacy Django monolith to a decoupled architecture with a standalone React/Next.js frontend and REST API backend.",
+          "Designed and configured Nginx reverse proxy and CI/CD pipelines to streamline deployment workflows and improve release reliability.",
+          "Introduced Tailwind CSS and shadcn/ui component library to accelerate UI development and enforce a consistent design system across the platform.",
+          "Leveraged AI-assisted development tools including Claude, Cursor, and GitHub Copilot to accelerate feature delivery, perform large-scale code refactoring, and optimize legacy codebase for performance and maintainability.",
+        ],
+        technologies: [
+          "React.js",
+          "Next.js",
+          "Tailwind CSS",
+          "shadcn/ui",
+          "Nginx",
+          "CI/CD",
+          "AI Tools",
+        ],
+      },
+      {
+        role: "Senior Software Developer",
+        period: "2023 - 2024",
+        responsibilities: [
+          "Introduced an AI Prompt screen with API integration, featuring additional functionalities such as note-taking and prompt saving.",
+          "Leveraged Material UI and Ant Design for controls related to Drag-and-Drop, Widgets, Menus, User Interface, and Forms.",
+          "Formulated and executed front-end development strategies, achieving a 15% boost in website performance by utilizing optimization techniques.",
+          "Refactored the existing application, integrated the Redux toolkit, adopted a micro-frontend architecture, Mixpanel tracking and updated NPM libraries.",
+          "Developed applications using Next.js and React, demonstrating a solid understanding of their features and best practices.",
+        ],
+        technologies: [
+          "React.js",
+          "Next.js",
+          "Redux Toolkit",
+          "Material UI",
+          "Ant Design",
+          "Micro-frontend",
+          "Mixpanel",
+        ],
+      },
     ],
   },
   {
