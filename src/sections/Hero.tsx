@@ -111,7 +111,7 @@ const Hero = () => {
                   className="w-2 h-2 rounded-full animate-pulse"
                   style={{ background: "var(--accent)", boxShadow: "0 0 8px var(--accent)" }}
                 />
-                Senior Frontend Developer
+                Lead Software Engineer
               </div>
             </FadeUp>
 
@@ -136,9 +136,10 @@ const Hero = () => {
                 className="text-base lg:text-lg max-w-[560px] mx-auto lg:mx-0 leading-relaxed"
                 style={{ color: "var(--text-secondary)" }}
               >
-                Results-driven Senior Frontend Engineer with 6+ years delivering
-                high-performance, scalable web applications. Specialized in React,
-                Next.js, and modern frontend ecosystems.
+                Lead Software Engineer with <span style={{ color: "var(--accent)", fontWeight: 600 }}>8+ years</span> crafting
+                high-performance <span style={{ color: "var(--text-primary)", fontWeight: 500 }}>React</span> &amp; frontend applications.
+                Passionate about <span style={{ color: "var(--text-primary)", fontWeight: 500 }}>AI-assisted development</span> — leveraging
+                Claude Code, Cursor &amp; Copilot to ship faster and smarter.
               </p>
             </FadeUp>
 
@@ -224,7 +225,7 @@ const Hero = () => {
               className="absolute -right-4 lg:-right-8 top-8 px-4 py-3 rounded-2xl backdrop-blur-xl"
               style={{ background: "var(--bg-card)", border: "1px solid var(--border-color)", boxShadow: "var(--card-shadow)" }}
             >
-              <div className="text-3xl font-bold" style={{ color: "var(--text-primary)" }}>6+</div>
+              <div className="text-3xl font-bold" style={{ color: "var(--text-primary)" }}>8+</div>
               <div className="text-xs font-medium" style={{ color: "var(--text-muted)" }}>Years Exp.</div>
             </motion.div>
 
