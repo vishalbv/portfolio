@@ -126,12 +126,7 @@ export const skills = [
     rating: 7,
     technologies: ["Git", "Docker", "CI/CD", "Webpack"],
   },
-  {
-    name: "Mobile Development",
-    years: 2,
-    rating: 6,
-    technologies: ["React Native", "Expo", "Android"],
-  },
+
   {
     name: "Testing",
     years: 4,

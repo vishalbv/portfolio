@@ -1,229 +1,222 @@
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+"use client";
+
+import { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import Wave from "react-wavify";
 import { SocialLinks } from "../components/nav-header";
 
+type ContactFormData = { name: string; email: string; message: string };
+
 export const Contact = () => {
-  // Add this type for form data
-  type ContactFormData = {
-    name: string;
-    email: string;
-    message: string;
-  };
-
-  // Add this inside your component
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState<ContactFormData>({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(
-    null
-  );
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
+  const [waveAmplitude, setWaveAmplitude] = useState(40);
 
-  // Add state for wave properties
-  const [waveAmplitude, setWaveAmplitude] = useState(70);
+  const headRef = useRef<HTMLDivElement>(null);
+  const headInView = useInView(headRef, { once: true });
+  const formRef = useRef<HTMLDivElement>(null);
+  const formInView = useInView(formRef, { once: true, margin: "-60px" });
 
-  // Handle mouse movement
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      const windowWidth = window.innerWidth;
-      const windowHeight = window.innerHeight;
-
-      // Calculate wave amplitude based on vertical mouse position
-      const newAmplitude = 20 + (clientY / windowHeight) * 30;
-      setWaveAmplitude(newAmplitude);
+    const handler = (e: MouseEvent) => {
+      setWaveAmplitude(20 + (e.clientY / window.innerHeight) * 35);
     };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handler);
+    return () => window.removeEventListener("mousemove", handler);
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
-
     try {
       await emailjs.send(
-        "service_e8pojai", // Replace with your EmailJS service ID
-        "template_us8rnkt", // Replace with your EmailJS template ID
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_name: "Vishal BV",
-          to_email: "vishalbv23@gmail.com",
-        },
-        "tIArEks7onBYnbvy1" // Replace with your EmailJS public key
+        "service_e8pojai",
+        "template_us8rnkt",
+        { from_name: formData.name, from_email: formData.email, message: formData.message, to_name: "Vishal BV", to_email: "vishalbv23@gmail.com" },
+        "tIArEks7onBYnbvy1"
       );
-
       setSubmitStatus("success");
       setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      console.error("Failed to send email:", error);
+    } catch {
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
   };
-  return (
-    <section
-      id="contact"
-      className="min-h-screen py-20 relative overflow-hidden"
-    >
-      <div className="absolute inset-0">
-        <Wave
-          fill="var(--primary)"
-          paused={false}
-          opacity="0.05"
-          options={{
-            height: 40,
-            amplitude: waveAmplitude * 1.5,
-            speed: 0.12,
-            points: 8,
-          }}
-          style={{
-            position: "absolute",
-            bottom: 0,
 
-            transition: "transform 0.3s ease-out",
-            height: 230,
-          }}
+  return (
+    <section id="contact" className="min-h-screen py-24 relative overflow-hidden">
+      {/* Wave bg */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <Wave
+          fill="var(--accent)"
+          paused={false}
+          opacity="0.04"
+          options={{ height: 40, amplitude: waveAmplitude * 1.5, speed: 0.12, points: 8 }}
+          style={{ position: "absolute", bottom: 0, height: 220, transition: "transform 0.3s ease-out" }}
           data-testid="wave"
         />
         <Wave
-          fill="#8a2be2"
+          fill="var(--accent-2)"
           paused={false}
-          opacity="0.1"
-          options={{
-            height: 60,
-            amplitude: waveAmplitude * 2,
-            speed: 0.07,
-            points: 8,
-          }}
-          style={{
-            position: "absolute",
-            bottom: 0,
-
-            transition: "transform 0.3s ease-out",
-            height: 230,
-          }}
+          opacity="0.06"
+          options={{ height: 60, amplitude: waveAmplitude * 2, speed: 0.07, points: 8 }}
+          style={{ position: "absolute", bottom: 0, height: 220, transition: "transform 0.3s ease-out" }}
           data-testid="wave"
         />
       </div>
 
       <div className="container relative">
-        <div className="max-w-[980px] mx-auto">
-          <div className="space-y-4 mb-12">
-            <div className="text-yellow-500 text-sm tracking-wider">
-              — Get in Touch
-            </div>
-            <h2 className="text-4xl font-bold ">Let&apos;s Work Together</h2>
-            <p className="text-zinc-400 max-w-[600px]">
-              Have a project in mind? Let&apos;s discuss how we can help your
-              business grow.
+        <div className="max-w-[900px] mx-auto">
+          {/* Header */}
+          <motion.div
+            ref={headRef}
+            initial={{ opacity: 0, y: 20 }}
+            animate={headInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-14"
+          >
+            <span className="section-label mb-3">Get in Touch</span>
+            <h2 className="text-4xl lg:text-5xl font-bold mt-3 mb-4" style={{ color: "var(--text-primary)" }}>
+              Let&apos;s Work Together
+            </h2>
+            <p className="text-base max-w-[560px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+              Have a project in mind? Let&apos;s discuss how we can help your business grow.
             </p>
+          </motion.div>
+
+          {/* Form */}
+          <motion.div
+            ref={formRef}
+            initial={{ opacity: 0, y: 30 }}
+            animate={formInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="space-y-2">
+                  <label className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--text-muted)" }}>
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
+                    className="form-field"
+                    placeholder="John Doe"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--text-muted)" }}>
+                    Your Email
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
+                    className="form-field"
+                    placeholder="john@example.com"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--text-muted)" }}>
+                  Your Message
+                </label>
+                <textarea
+                  required
+                  value={formData.message}
+                  onChange={(e) => setFormData((p) => ({ ...p, message: e.target.value }))}
+                  className="form-field min-h-[140px] resize-none"
+                  placeholder="Hello, I'd like to discuss..."
+                />
+              </div>
+
+              <div className="flex items-center gap-4 pt-1">
+                <motion.button
+                  type="submit"
+                  disabled={isSubmitting}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="btn-primary text-sm"
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </motion.button>
+                {submitStatus === "success" && (
+                  <motion.span
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="text-sm font-medium"
+                    style={{ color: "#4ade80" }}
+                  >
+                    Message sent successfully!
+                  </motion.span>
+                )}
+                {submitStatus === "error" && (
+                  <motion.span
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="text-sm font-medium"
+                    style={{ color: "#f87171" }}
+                  >
+                    Failed to send. Please try again.
+                  </motion.span>
+                )}
+              </div>
+            </form>
+          </motion.div>
+
+          {/* Divider */}
+          <div className="flex items-center gap-4 my-14">
+            <div className="h-px flex-1" style={{ background: "var(--border-color)" }} />
+            <span className="text-xs font-medium uppercase tracking-widest" style={{ color: "var(--text-muted)" }}>or</span>
+            <div className="h-px flex-1" style={{ background: "var(--border-color)" }} />
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <div className="space-y-2">
-                <label htmlFor="name" className="text-xs font-medium text-zinc-400 uppercase tracking-wider">
-                  Your Name
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData((prev) => ({ ...prev, name: e.target.value }))
-                  }
-                  className="w-full px-4 py-3 rounded-xl bg-[#1A1530]/80 border border-white/8 transition-all placeholder:text-zinc-600 text-white"
-                  placeholder="John Doe"
-                />
-              </div>
-              <div className="space-y-2">
-                <label htmlFor="email" className="text-xs font-medium text-zinc-400 uppercase tracking-wider">
-                  Your Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData((prev) => ({ ...prev, email: e.target.value }))
-                  }
-                  className="w-full px-4 py-3 rounded-xl bg-[#1A1530]/80 border border-white/8 transition-all placeholder:text-zinc-600 text-white"
-                  placeholder="john@example.com"
-                />
-              </div>
-            </div>
-            <div className="space-y-2">
-              <label htmlFor="message" className="text-xs font-medium text-zinc-400 uppercase tracking-wider">
-                Your Message
-              </label>
-              <textarea
-                id="message"
-                required
-                value={formData.message}
-                onChange={(e) =>
-                  setFormData((prev) => ({ ...prev, message: e.target.value }))
-                }
-                className="w-full px-4 py-3 rounded-xl bg-[#1A1530]/80 border border-white/8 transition-all min-h-[140px] resize-none placeholder:text-zinc-600 text-white"
-                placeholder="Hello, I'd like to discuss..."
-              />
-            </div>
-            <div className="flex items-center gap-4 pt-1">
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="bg-[var(--primary)] hover:bg-[var(--primary)]/85 text-black font-semibold px-8 rounded-full shadow-[0_0_20px_rgba(0,242,254,0.25)] hover:shadow-[0_0_28px_rgba(0,242,254,0.4)] transition-all"
+          {/* Direct contact card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={formInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="glass-card p-8 max-w-md mx-auto text-center"
+          >
+            <h3 className="text-xl font-bold mb-1" style={{ color: "var(--text-primary)" }}>Contact Me Directly</h3>
+            <p className="text-sm mb-7" style={{ color: "var(--text-muted)" }}>Available for freelance &amp; full-time roles</p>
+
+            <div className="space-y-3 text-sm">
+              <a
+                href="tel:+917760873718"
+                className="flex items-center justify-center gap-2 transition-colors"
+                style={{ color: "var(--text-secondary)" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </Button>
-              {submitStatus === "success" && (
-                <span className="text-green-400 text-sm">Message sent successfully!</span>
-              )}
-              {submitStatus === "error" && (
-                <span className="text-red-400 text-sm">Failed to send. Please try again.</span>
-              )}
-            </div>
-          </form>
-
-          <div className="mt-16">
-            <div className="flex items-center gap-4 justify-center">
-              <div className="h-[1px] bg-white/10 flex-1" />
-              <span className="text-zinc-500 text-sm">OR</span>
-              <div className="h-[1px] bg-white/10 flex-1" />
+                <span>📞</span> +91 7760873718
+              </a>
+              <a
+                href="mailto:vishalbv23@gmail.com"
+                className="flex items-center justify-center gap-2 transition-colors"
+                style={{ color: "var(--text-secondary)" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
+              >
+                <span>✉️</span> vishalbv23@gmail.com
+              </a>
+              <p className="flex items-center justify-center gap-2" style={{ color: "var(--text-muted)" }}>
+                <span>📍</span> Bengaluru, India
+              </p>
             </div>
 
-            <div className="mt-8">
-              <div className="bg-[#1A1530]/60 border border-white/8 rounded-2xl p-8 backdrop-blur-sm text-center max-w-md mx-auto">
-                <h3 className="text-xl font-bold mb-1">Contact Me Directly</h3>
-                <p className="text-zinc-500 text-sm mb-6">Available for freelance & full-time roles</p>
-                <div className="space-y-3 text-sm">
-                  <a href="tel:+917760873718" className="flex items-center justify-center gap-2 text-zinc-300 hover:text-[var(--primary)] transition-colors">
-                    <span className="text-[var(--primary)]">📞</span> +91 7760873718
-                  </a>
-                  <a href="mailto:vishalbv23@gmail.com" className="flex items-center justify-center gap-2 text-zinc-300 hover:text-[var(--primary)] transition-colors">
-                    <span className="text-[var(--primary)]">✉️</span> vishalbv23@gmail.com
-                  </a>
-                  <p className="flex items-center justify-center gap-2 text-zinc-400">
-                    <span className="text-[var(--primary)]">📍</span> Bengaluru, India
-                  </p>
-                </div>
-                <div className="mt-6 pt-5 border-t border-white/8">
-                  <SocialLinks />
-                </div>
-              </div>
+            <div className="mt-7 pt-6" style={{ borderTop: "1px solid var(--border-color)" }}>
+              <SocialLinks />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

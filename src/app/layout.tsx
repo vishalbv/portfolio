@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Dongle } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../components/theme-provider";
 import { NavHeader } from "../components/nav-header";
@@ -10,16 +10,10 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-const dongle = Dongle({
-  subsets: ["latin"],
-  weight: ["300", "400", "700"],
-  variable: "--font-dongle",
-});
-
 export const metadata: Metadata = {
-  title: "Vishal BV | Senior Frontend Developer",
+  title: "Vishal BV | Lead Software Engineer",
   description:
-    "Portfolio website of Vishal BV - Senior Frontend Developer specializing in React, Next.js and Node.js",
+    "Portfolio website of Vishal BV - Lead Software Engineer specializing in React, Next.js, and AI-assisted development",
 };
 
 export default function RootLayout({
@@ -28,18 +22,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" type="image/png" href="nu.png" />
       </head>
-      <body
-        className={`${poppins.variable} font-sans bg-[#1a1d23] ${dongle.variable}`}
-      >
+      <body className={`${poppins.variable} font-sans`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem={false}
-          disableTransitionOnChange
+          disableTransitionOnChange={false}
         >
           <div className="relative min-h-screen">
             <NavHeader />
