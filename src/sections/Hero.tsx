@@ -70,9 +70,11 @@ const Hero = () => {
                 <span className="block mt-1">With Passion</span>
               </h1>
               <p className="text-base lg:text-lg text-zinc-400 max-w-[600px] mx-auto lg:mx-0">
-                Over 6 years of experience in crafting responsive and scalable
-                web applications. Specialized in modern frontend technologies
-                and user-centric development.
+                Results-driven Senior Frontend Engineer with 6+ years delivering
+                high-performance, scalable web applications. Specialized in
+                React, Next.js, and modern frontend ecosystems — with a track
+                record of leading architecture initiatives and shipping
+                production-grade products end to end.
               </p>
             </div>
 

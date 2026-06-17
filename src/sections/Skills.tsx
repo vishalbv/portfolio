@@ -14,8 +14,8 @@ const Skills = () => {
             </div>
             <h2 className="text-4xl font-bold ">Professional Domains</h2>
             <p className="text-zinc-400 max-w-[600px]">
-              Comprehensive skill set in frontend development with expertise in
-              modern web technologies.
+              Deep expertise across the full frontend stack — from architecture
+              and system design to pixel-perfect UI and production deployments.
             </p>
           </div>
 
